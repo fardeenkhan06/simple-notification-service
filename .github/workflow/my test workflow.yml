@@ -1,1 +1,35 @@
+name: My Test Workflow
+
+on:
+  workflow_dispatch:  # Allows manual execution from GitHub Actions tab
+
+jobs:
+  terraform-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.8.5  # or whatever version you're using
+
+      - name: Initialize Terraform
+        working-directory: ./your-module-dir
+        run: terraform init
+
+      - name: Validate Terraform
+        working-directory: ./your-module-dir
+        run: terraform validate
+
+      - name: Terraform Plan
+        working-directory: ./your-module-dir
+        run: terraform plan
+
+      # Optional: If you want to auto-apply (not recommended for tests)
+      # - name: Terraform Apply
+      #   working-directory: ./your-module-dir
+      #   run: terraform apply -auto-approve
 
