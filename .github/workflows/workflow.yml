@@ -3,8 +3,8 @@ name: 'Terraform'
 on:
   push:
     branches: [ "develop" ]
-  jobs:
-     deploy-sns:
+  fork:
+     types:
      runs-on: ubuntu-latest
      env:AWS_REGION: ap-south-1 
      
