@@ -20,8 +20,8 @@ on:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with: 
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-access-key-id: AKIAXGXBKMKEQA5GYDG3
+          aws-secret-access-key: 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
       
       - name: initialize terraform
         run: terraform init
